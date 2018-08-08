@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from polymorphic.admin import PolymorphicInlineSupportMixin, StackedPolymorphicInline
-from .models import Order, Payment, CreditCardPayment, BankPayment, SepaPayment, Beneficiary
+from .models import Order, Payment, CreditCardPayment, BankPayment, SepaPayment, Beneficiary, TestPayment
 
 
 class CreditCardPaymentInline(StackedPolymorphicInline.Child):
@@ -16,7 +16,8 @@ class SepaPaymentInline(StackedPolymorphicInline.Child):
     model = SepaPayment
     filter_horizontal = ('beneficiaries',)
 
-
+class TestPaymentInline(StackedPolymorphicInline.Child):
+    model = TestPayment
 
 class PaymentInline(StackedPolymorphicInline):
     """
@@ -30,6 +31,7 @@ class PaymentInline(StackedPolymorphicInline):
         CreditCardPaymentInline,
         BankPaymentInline,
         SepaPaymentInline,
+        TestPaymentInline
     )
 
 

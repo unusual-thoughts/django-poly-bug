@@ -86,3 +86,11 @@ class SepaPayment(Payment):
     class Meta:
         verbose_name = _("SEPA Payment")
         verbose_name_plural = _("SEPA Payments")
+
+class TestPayment(Payment):
+    title = models.CharField(max_length=34)
+    beneficiaries = models.ForeignKey(Beneficiary, "test", blank=True)
+
+    class Meta:
+        verbose_name = _("Test Payment")
+        verbose_name_plural = _("Test Payments")
