@@ -3,7 +3,7 @@
 admin login: `admin`
 password: `admin`
 
-Error when trying to delete Order whose first payment has relations:
+Error when trying to delete Order whose first payment has many-to-many relations:
 
 ```
 Environment:
